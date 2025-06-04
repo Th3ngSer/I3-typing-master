@@ -1,7 +1,5 @@
 # I3-typing-master
 
-# i3_typing_master
-
 ---
 # How to use 
 
