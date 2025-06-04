@@ -3,7 +3,6 @@
 # i3_typing_master
 
 ---
-
 # How to use 
 
 ## 1. Clone the repository with the commnad :
@@ -13,4 +12,4 @@
 
 ## 3. Navigation to the Home , Register , Log in , Results , Start Test , About and Quick Test
 
-## 4./ Test your skill for our website 
+## 4. Test your skill for our website 
