@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 p-4 mx-4 mt-4 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-white flex-shrink-0">
+                <span class="text-yellow-400">Typing</span> Test Master
+            </div>
+
+            <!-- Desktop Navigation - Center -->
+            <div class="desktop-nav hidden md:flex items-center space-x-8 mx-8">
+                <a href="#" class="nav-link active" onclick="showSection('home', this)">Home</a>
+                <a href="#" class="nav-link" onclick="showSection('register', this)">Register</a>
+                <a href="#" class="nav-link" onclick="showSection('login', this)">Login</a>
+                <a href="#" class="nav-link" onclick="showSection('results', this)">Results</a>
+                <a href="#" class="nav-link" onclick="showSection('typing', this)">Start Test</a>
+                <a href="#" class="nav-link" onclick="showSection('about', this)">About</a>
+            </div>
+
+            <!-- Right side - CTA Button -->
+            <div class="hidden md:flex flex-shrink-0">
+                <button class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105" onclick="showSection('typing', this)">
+                    Quick Test
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/10" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav" class="mobile-nav hidden mt-4 grid grid-cols-2 gap-2">
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('home', this); toggleMobileMenu();">Home</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('register', this); toggleMobileMenu();">Register</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('login', this); toggleMobileMenu();">Login</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('results', this); toggleMobileMenu();">Results</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('typing', this); toggleMobileMenu();">Start Test</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('about', this); toggleMobileMenu();">About</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto p-4 flex-grow">
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <div class="hero-section">
+                <h1 class="hero-title">Master Your Typing Skills</h1>
+                <p class="hero-subtitle">Test your typing speed and accuracy with our advanced typing test platform</p>
+                <div class="space-x-4">
+                    <button class="btn-primary" onclick="showSection('typing', this)">Start Typing Test</button>
+                    <button class="btn-secondary" onclick="showSection('register', this)">Create Account</button>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="text-xl font-bold mb-3">Speed Testing</h3>
+                    <p>Measure your typing speed in words per minute (WPM) with real-time feedback</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Accuracy Tracking</h3>
+                    <p>Track your accuracy percentage and identify areas for improvement</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="text-xl font-bold mb-3">Detailed Analytics</h3>
+                    <p>View comprehensive statistics and track your progress over time</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Section -->
+        <div id="register" class="section">
+            <div class="max-w-md mx-auto glass-effect p-8 mt-20">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Create Account</h2>
+                <form id="registerForm" class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="Full Name" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Confirm Password" class="input-field" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Create Account</button>
+                </form>
+                <p class="text-center text-white mt-6">
+                    Already have an account?
+                    <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('login', this)">Login here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Login Section -->
+        <div id="login" class="section">
+            <div class="max-w-md mx-auto glass-effect p-8 mt-20">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Login</h2>
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <input type="email" placeholder="Email Address" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="input-field" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center text-white">
+                            <input type="checkbox" class="mr-2"> Remember me
+                        </label>
+                        <a href="#" class="text-yellow-400 hover:underline">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Login</button>
+                </form>
+                <p class="text-center text-white mt-6">
+                    Don't have an account?
+                    <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('register', this)">Register here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Test Results Section -->
+        <div id="results" class="section">
+            <div class="glass-effect p-8 mt-8">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Your Test Results</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">85</div>
+                        <div>Average WPM</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">94%</div>
+                        <div>Average Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">23</div>
+                        <div>Tests Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120</div>
+                        <div>Best WPM</div>
+                    </div>
+                </div>
+                <div class="mt-8 overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white/20">
+                                <th class="text-left p-4">Date</th>
+                                <th class="text-left p-4">WPM</th>
+                                <th class="text-left p-4">Accuracy</th>
+                                <th class="text-left p-4">Time</th>
+                                <th class="text-left p-4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-04</td>
+                                <td class="p-4">92 WPM</td>
+                                <td class="p-4">96%</td>
+                                <td class="p-4">1:30</td>
+                                <td class="p-4"><span class="text-green-400">Excellent</span></td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-03</td>
+                                <td class="p-4">87 WPM</td>
+                                <td class="p-4">94%</td>
+                                <td class="p-4">1:45</td>
+                                <td class="p-4"><span class="text-blue-400">Good</span></td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-02</td>
+                                <td class="p-4">78 WPM</td>
+                                <td class="p-4">91%</td>
+                                <td class="p-4">2:00</td>
+                                <td class="p-4"><span class="text-yellow-400">Average</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typing Test Section -->
+        <div id="typing" class="section">
+            <div class="glass-effect p-8 mt-8">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Typing Speed Test</h2>
+
+                <div class="typing-area">
+                    <div class="text-center mb-6">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number" id="wpm">0</div>
+                                <div>WPM</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="accuracy">100%</div>
+                                <div>Accuracy</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="timer">1:00</div>
+                                <div>Time Left</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-to-type" id="textToType">
+                        The quick brown fox jumps over the lazy dog. This pangram contains every letter of the alphabet and is commonly used for typing practice. Focus on accuracy first, then gradually increase your speed as you become more comfortable with the keyboard layout.
+                    </div>
+                    <textarea
+                        id="typingInput"
+                        class="typing-input"
+                        placeholder="Start typing here..."
+                        rows="4"
+                        disabled
+                    ></textarea>
+                    <div class="text-center mt-6 space-x-4">
+                        <button id="startBtn" class="btn-primary" onclick="startTest()">Start Test</button>
+                        <button id="resetBtn" class="btn-secondary" onclick="resetTest()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div id="about" class="section">
+            <div class="glass-effect p-8 mt-8">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">About Typing Test Master</h2>
+
+                <div class="text-white space-y-6 text-lg leading-relaxed">
+                    <p>
+                        Welcome to Typing Test Master, the premier platform for improving your typing skills and measuring your progress. Our mission is to help individuals and professionals enhance their typing speed and accuracy through comprehensive testing and detailed analytics.
+                    </p>
+
+                    <p>
+                        Founded in 2025, we understand the importance of efficient typing in today's digital world. Whether you're a student, professional, or simply someone looking to improve their computer skills, our platform provides the tools and insights you need to succeed.
+                    </p>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h3 class="text-xl font-bold mb-3">Learn & Improve</h3>
+                            <p>Progressive difficulty levels and personalized feedback to help you improve steadily</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3 class="text-xl font-bold mb-3">Track Progress</h3>
+                            <p>Detailed statistics and historical data to monitor your improvement over time</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3 class="text-xl font-bold mb-3">Achieve Goals</h3>
+                            <p>Set personal targets and celebrate milestones as you reach new typing speeds</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8">
+                        <h3 class="text-2xl font-bold mb-4">Why Choose Typing Test Master?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Real-time typing analysis</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Multiple difficulty levels</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Comprehensive progress tracking</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Mobile-friendly interface</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Detailed performance analytics</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 mr-2">✓</span>
+                                    <span>Free to use</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
