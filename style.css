@@ -1,0 +1,345 @@
+/* General Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Vibrant gradient background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition for all properties */
+    position: relative;
+    padding: 10px 15px; /* Comfortable padding */
+    border-radius: 10px; /* Rounded corners for links */
+    font-weight: 600; /* Semi-bold font */
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+}
+.nav-link:hover {
+    color: #ffd700; /* Gold color on hover */
+    transform: translateY(-3px); /* More pronounced lift effect */
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque background on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+.nav-link.active {
+    color: #ffd700; /* Gold color for active link */
+    background: rgba(255, 255, 255, 0.2); /* More opaque background for active */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25); /* Stronger shadow for active */
+}
+/* Underline effect for nav links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Position below the link */
+    left: 50%; /* Start from center */
+    width: 0;
+    height: 3px; /* Thicker underline */
+    background: #ffd700; /* Gold underline */
+    border-radius: 2px; /* Rounded ends for underline */
+    transform: translateX(-50%); /* Center the underline */
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth width transition */
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 20px); /* Underline width slightly less than link width */
+}
+
+/* Main Content Sections */
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out; /* Slightly longer fade-in */
+}
+.section.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); } /* Start lower */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* General Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 35px; /* Larger padding */
+    color: white;
+    font-weight: 700; /* Bolder font */
+    cursor: pointer;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spaced out letters */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+.btn-primary:hover {
+    transform: translateY(-3px); /* More lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Darker, larger shadow */
+}
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    padding: 14px 35px; /* Larger padding */
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Field Styles */
+.input-field {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px 20px;
+    color: white;
+    width: 100%;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Slightly larger font */
+}
+.input-field:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); /* Stronger glow */
+}
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Typing Area Specific Styles */
+.typing-area {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.text-to-type {
+    font-size: 1.2rem; /* Larger font for readability */
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #667eea; /* Thicker, more prominent border */
+    text-align: left; /* Align text to left */
+}
+.typing-input {
+    width: 100%;
+    padding: 18px; /* Larger padding */
+    border: 2px solid #ddd;
+    border-radius: 15px; /* More rounded */
+    font-size: 1.1rem; /* Consistent font size */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: none; /* Prevent manual resizing */
+}
+.typing-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4); /* Glow on focus */
+}
+
+/* Stats Grid & Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted min width */
+    gap: 25px; /* Increased gap */
+    margin: 25px 0;
+}
+.stat-card {
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25); /* Stronger border */
+    border-radius: 18px; /* More rounded */
+    padding: 25px; /* More padding */
+    text-align: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+.stat-number {
+    font-size: 2.5rem; /* Larger stat numbers */
+    font-weight: 800; /* Extra bold */
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+.stat-card > div:last-child {
+    font-size: 0.95rem; /* Slightly smaller label */
+    opacity: 0.9;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none; /* Hidden by default */
+}
+.mobile-nav {
+    transition: all 0.4s ease-out; /* Smooth slide down/up */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+.mobile-nav.active {
+    max-height: 300px; /* Adjust based on content */
+    opacity: 1;
+    padding: 10px 0;
+}
+.mobile-nav a {
+    font-size: 1.1rem;
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    display: block;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.mobile-nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(5px);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 0; /* More vertical padding */
+    color: white;
+}
+.hero-title {
+    font-size: 4.5rem; /* Even larger title */
+    font-weight: 900;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffd700, #ff6b35); /* Gold to Orange gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+.hero-subtitle {
+    font-size: 1.4rem; /* Larger subtitle */
+    margin-bottom: 50px;
+    opacity: 0.95;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min width */
+    gap: 35px; /* Increased gap */
+    margin: 50px 0;
+}
+.feature-card {
+    background: rgba(255, 255, 255, 0.12); /* Slightly more opaque */
+    backdrop-filter: blur(12px); /* Stronger blur */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 22px; /* More rounded */
+    padding: 35px; /* More padding */
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.feature-card:hover {
+    transform: translateY(-12px); /* More lift */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+.feature-icon {
+    font-size: 3.5rem; /* Larger icons */
+    margin-bottom: 25px;
+    color: #ffd700; /* Gold color for icons */
+}
+.feature-card h3 {
+    font-size: 1.5rem; /* Larger feature titles */
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #a7d9ff; /* Lighter blue for titles */
+}
+.feature-card p {
+    font-size: 1.05rem; /* Slightly smaller feature description */
+    opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .mobile-menu {
+        display: block;
+    }
+    nav .flex-shrink-0:last-child { /* Hide Quick Test button on mobile */
+        display: none;
+    }
+    .hero-title {
+        font-size: 3rem; /* Adjust for smaller screens */
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack stats on mobile */
+    }
+    .feature-grid {
+        grid-template-columns: 1fr; /* Stack features on mobile */
+    }
+    .glass-effect {
+        margin: 10px; /* Add margin on smaller screens */
+    }
+}
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .feature-icon {
+        font-size: 3rem;
+    }
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+}
