@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="reset_pass.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 p-4 mx-4 mt-4 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-white flex-shrink-0">
+                <span class="text-yellow-400">Typing</span> Test Master
+            </div>
+
+            <!-- Desktop Navigation - Center -->
+            <div class="desktop-nav hidden md:flex items-center space-x-8 mx-8">
+                <a href="#" class="nav-link active" onclick="showSection('home', this)">Home</a>
+                <a href="#" class="nav-link" onclick="showSection('register', this)">Register</a>
+                <a href="#" class="nav-link" onclick="showSection('login', this)">Login</a>
+                <a href="#" class="nav-link" onclick="showSection('results', this)">Results</a>
+                <a href="#" class="nav-link" onclick="showSection('typing', this)">Start Test</a>
+                <a href="#" class="nav-link" onclick="showSection('about', this)">About</a>
+            </div>
+
+            <!-- Right side - CTA Button -->
+            <div class="hidden md:flex flex-shrink-0">
+                <button class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105" onclick="showSection('typing', this)">
+                    Quick Test
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/10" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav" class="mobile-nav hidden mt-4 grid grid-cols-2 gap-2">
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('home', this); toggleMobileMenu();">Home</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('register', this); toggleMobileMenu();">Register</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('login', this); toggleMobileMenu();">Login</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('results', this); toggleMobileMenu();">Results</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('typing', this); toggleMobileMenu();">Start Test</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('about', this); toggleMobileMenu();">About</a>
+        </div>
+    </nav>
+
+       <!-- Login Section -->
+        <div id="login" class="section">
+            <div class="max-w-md mx-auto glass-effect p-8 mt-20">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Login</h2>
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <input type="email" placeholder="Email Address" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="input-field" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center text-white">
+                            <input type="checkbox" class="mr-2"> Remember me
+                        </label>
+                        <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('reset-password', this)">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Login</button>
+                </form>
+                <p class="text-center text-white mt-6">
+                    Don't have an account?
+                    <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('register', this)">Register here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Reset Password Section -->
+        <div id="reset-password" class="section">
+            <div class="max-w-md mx-auto glass-effect p-8 mt-20">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Reset Password</h2>
+                <div id="resetStep1" class="reset-step">
+                    <p class="text-white text-center mb-6">Enter your email address and we'll send you instructions to reset your password.</p>
+                    <form id="resetEmailForm" class="space-y-6">
+                        <div>
+                            <input type="email" id="resetEmail" placeholder="Enter your email address" class="input-field" required>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Send Reset Code</button>
+                    </form>
+                </div>
+                
+                <div id="resetStep2" class="reset-step hidden">
+                    <p class="text-white text-center mb-6">We've sent a verification code to your email. Enter the code and your new password below.</p>
+                    <form id="resetCodeForm" class="space-y-6">
+                        <div>
+                            <input type="text" id="verificationCode" placeholder="Enter verification code" class="input-field" required maxlength="6">
+                        </div>
+                        <div>
+                            <input type="password" id="newPassword" placeholder="New Password" class="input-field" required>
+                        </div>
+                        <div>
+                            <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" class="input-field" required>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Reset Password</button>
+                    </form>
+                </div>
+                
+                <div id="resetStep3" class="reset-step hidden">
+                    <div class="text-center">
+                        <div class="text-6xl text-green-400 mb-4">✓</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Password Reset Successful!</h3>
+                        <p class="text-white mb-6">Your password has been successfully reset. You can now login with your new password.</p>
+                        <button class="btn-primary" onclick="showSection('login', this)">Go to Login</button>
+                    </div>
+                </div>
+                
+                <p class="text-center text-white mt-6">
+                    Remember your password?
+                    <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('login', this)">Back to Login</a>
+                </p>
+            </div>
+        </div>
+
+<script src="reset_pass.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="test_result.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 p-4 mx-4 mt-4 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-white flex-shrink-0">
+                <span class="text-yellow-400">Typing</span> Test Master
+            </div>
+
+            <!-- Desktop Navigation - Center -->
+            <div class="desktop-nav hidden md:flex items-center space-x-8 mx-8">
+                <a href="#" class="nav-link active" onclick="showSection('home', this)">Home</a>
+                <a href="#" class="nav-link" onclick="showSection('register', this)">Register</a>
+                <a href="#" class="nav-link" onclick="showSection('login', this)">Login</a>
+                <a href="#" class="nav-link" onclick="showSection('results', this)">Results</a>
+                <a href="#" class="nav-link" onclick="showSection('typing', this)">Start Test</a>
+                <a href="#" class="nav-link" onclick="showSection('about', this)">About</a>
+            </div>
+
+            <!-- Right side - CTA Button -->
+            <div class="hidden md:flex flex-shrink-0">
+                <button class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105" onclick="showSection('typing', this)">
+                    Quick Test
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/10" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav" class="mobile-nav hidden mt-4 grid grid-cols-2 gap-2">
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('home', this); toggleMobileMenu();">Home</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('register', this); toggleMobileMenu();">Register</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('login', this); toggleMobileMenu();">Login</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('results', this); toggleMobileMenu();">Results</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('typing', this); toggleMobileMenu();">Start Test</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('about', this); toggleMobileMenu();">About</a>
+        </div>
+    </nav>
+    
+    <div id="results" class="section">
+            <div class="glass-effect p-8 mt-8">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Your Test Results</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">85</div>
+                        <div>Average WPM</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">94%</div>
+                        <div>Average Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">23</div>
+                        <div>Tests Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">120</div>
+                        <div>Best WPM</div>
+                    </div>
+                </div>
+                <div class="mt-8 overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white/20">
+                                <th class="text-left p-4">Date</th>
+                                <th class="text-left p-4">WPM</th>
+                                <th class="text-left p-4">Accuracy</th>
+                                <th class="text-left p-4">Time</th>
+                                <th class="text-left p-4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-04</td>
+                                <td class="p-4">92 WPM</td>
+                                <td class="p-4">96%</td>
+                                <td class="p-4">1:30</td>
+                                <td class="p-4"><span class="text-green-400">Excellent</span></td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-03</td>
+                                <td class="p-4">87 WPM</td>
+                                <td class="p-4">94%</td>
+                                <td class="p-4">1:45</td>
+                                <td class="p-4"><span class="text-blue-400">Good</span></td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-4">2025-06-02</td>
+                                <td class="p-4">78 WPM</td>
+                                <td class="p-4">91%</td>
+                                <td class="p-4">2:00</td>
+                                <td class="p-4"><span class="text-yellow-400">Average</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<script src="test_result.js"></script>
+  </body>
+</html>
