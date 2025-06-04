@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 p-4 mx-4 mt-4 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-white flex-shrink-0">
+                <span class="text-yellow-400">Typing</span> Test Master
+            </div>
+
+            <!-- Desktop Navigation - Center -->
+            <div class="desktop-nav hidden md:flex items-center space-x-8 mx-8">
+                <a href="#" class="nav-link active" onclick="showSection('home', this)">Home</a>
+                <a href="#" class="nav-link" onclick="showSection('register', this)">Register</a>
+                <a href="#" class="nav-link" onclick="showSection('login', this)">Login</a>
+                <a href="#" class="nav-link" onclick="showSection('results', this)">Results</a>
+                <a href="#" class="nav-link" onclick="showSection('typing', this)">Start Test</a>
+                <a href="#" class="nav-link" onclick="showSection('about', this)">About</a>
+            </div>
+
+            <!-- Right side - CTA Button -->
+            <div class="hidden md:flex flex-shrink-0">
+                <button class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105" onclick="showSection('typing', this)">
+                    Quick Test
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/10" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileNav" class="mobile-nav hidden mt-4 grid grid-cols-2 gap-2">
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('home', this); toggleMobileMenu();">Home</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('register', this); toggleMobileMenu();">Register</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('login', this); toggleMobileMenu();">Login</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('results', this); toggleMobileMenu();">Results</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('typing', this); toggleMobileMenu();">Start Test</a>
+            <a href="#" class="nav-link text-white p-3 text-center rounded-lg hover:bg-white/20 transition-all" onclick="showSection('about', this); toggleMobileMenu();">About</a>
+        </div>
+    </nav>
+<div class="max-w-7xl mx-auto p-4 flex-grow">
+            <!-- Register Section -->
+        <div id="register" class="section">
+            <div class="max-w-md mx-auto glass-effect p-8 mt-20">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">Create Account</h2>
+                <form id="registerForm" class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="Full Name" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="input-field" required>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Confirm Password" class="input-field" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">Create Account</button>
+                </form>
+                <p class="text-center text-white mt-6">
+                    Already have an account?
+                    <a href="#" class="text-yellow-400 hover:underline" onclick="showSection('login', this)">Login here</a>
+                </p>
+            </div>
+        </div>
+</div>
+<script src="script.js"></script>
+  </body>
+</html>

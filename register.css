@@ -1,0 +1,134 @@
+/* General Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Vibrant gradient background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Soft shadow */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition for all properties */
+    position: relative;
+    padding: 10px 15px; /* Comfortable padding */
+    border-radius: 10px; /* Rounded corners for links */
+    font-weight: 600; /* Semi-bold font */
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+}
+.nav-link:hover {
+    color: #ffd700; /* Gold color on hover */
+    transform: translateY(-3px); /* More pronounced lift effect */
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque background on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+.nav-link.active {
+    color: #ffd700; /* Gold color for active link */
+    background: rgba(255, 255, 255, 0.2); /* More opaque background for active */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25); /* Stronger shadow for active */
+}
+/* Underline effect for nav links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Position below the link */
+    left: 50%; /* Start from center */
+    width: 0;
+    height: 3px; /* Thicker underline */
+    background: #ffd700; /* Gold underline */
+    border-radius: 2px; /* Rounded ends for underline */
+    transform: translateX(-50%); /* Center the underline */
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth width transition */
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 20px); /* Underline width slightly less than link width */
+}
+
+/* Main Content Sections */
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out; /* Slightly longer fade-in */
+}
+.section.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(25px); } /* Start lower */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* General Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 35px; /* Larger padding */
+    color: white;
+    font-weight: 700; /* Bolder font */
+    cursor: pointer;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spaced out letters */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+.btn-primary:hover {
+    transform: translateY(-3px); /* More lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Darker, larger shadow */
+}
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    padding: 14px 35px; /* Larger padding */
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Field Styles */
+.input-field {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px 20px;
+    color: white;
+    width: 100%;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Slightly larger font */
+}
+.input-field:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); /* Stronger glow */
+}
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
